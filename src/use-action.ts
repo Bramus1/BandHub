@@ -1,0 +1,2 @@
+import {useState} from 'react';
+export function useAction(){const [busy,setBusy]=useState(false),[error,setError]=useState(''),[notice,setNotice]=useState('');return {busy,error,notice,setNotice,run:async(work:()=>Promise<void>)=>{setBusy(true);setError('');setNotice('');try{await work()}catch(e){setError(e instanceof Error?e.message:String((e as {message?:string})?.message||'Something went wrong. Please try again.'))}finally{setBusy(false)}}}}

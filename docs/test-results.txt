@@ -1,0 +1,58 @@
+✔ new ideas retain musical metadata and use the five project statuses (1.555ms)
+✔ invalid song metadata is rejected {"title":""} (0.1873ms)
+✔ invalid song metadata is rejected {"title":"x","bpm":0} (0.0599ms)
+✔ invalid song metadata is rejected {"title":"x","bpm":301} (0.0469ms)
+✔ invalid song metadata is rejected {"title":"x","bpm":1.5} (0.0584ms)
+✔ invalid song metadata is rejected {"title":"x","status":"Ready"} (0.0522ms)
+✔ invalid song metadata is rejected {"title":"x","time_signature":"abc"} (0.0588ms)
+✔ invalid song metadata is rejected {"title":"x","kind":"other"} (0.043ms)
+✔ message validation preserves line breaks and rejects empty and oversized input (0.1233ms)
+✔ uploads accept explicit audio/document formats and safe size limits (0.2067ms)
+✔ known songs link to legitimate sources without offering unauthorized downloads (0.1637ms)
+✔ configuration rejects missing credentials and server secret keys (0.1486ms)
+✔ timestamps are safe for zero, minutes, and invalid duration (0.0744ms)
+✔ known cover metadata does not invent an unknown tempo (0.0573ms)
+✔ a sign-out or account change invalidates pending workspace responses (0.6859ms)
+✔ the most recent workspace refresh wins when responses arrive out of order (0.1175ms)
+✔ band owner is created atomically and unrelated bands are invisible (837.3912ms)
+✔ Band B cannot read or update Band A projects (3.1395ms)
+✔ Band B cannot insert content in Band A (4.8512ms)
+✔ membership self-promotion and self-joining are denied (2.3217ms)
+✔ invites are email-bound, single-use and permit shared band access (12.2279ms)
+✔ message author cannot be spoofed and cross-band song references are rejected (7.9862ms)
+✔ private storage reads and writes require matching membership and uploader path (6.0204ms)
+✔ recording versions append and reject nonexistent objects (10.4284ms)
+✔ timestamp comments cannot target recordings outside the band (4.0658ms)
+✔ removed members lose read access immediately (3.3496ms)
+✔ owner cannot be removed and band ids cannot be reassigned (4.1566ms)
+✔ navigation distinguishes setup, loading, sign-in, and authenticated workspace (0.8497ms)
+✔ secure storage round-trips long Unicode sessions within native size limits (0.6818ms)
+✔ failed writes preserve the previous session and clean up partial chunks (0.4862ms)
+✔ missing chunks do not restore a partial session (0.1651ms)
+✔ metadata lookup normalizes recordings and preserves the source link (15.7452ms)
+✔ empty search is rejected before making a request (0.5549ms)
+✔ rate limiting and broken provider responses are surfaced (0.5945ms)
+✔ partial metadata keeps unknown fields empty and discards incomplete records (0.2442ms)
+✔ provider maintenance and server failures produce actionable errors (0.3052ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1810.0071
+ℹ start of coverage report
+ℹ -------------------------------------------------------------------
+ℹ file               | line % | branch % | funcs % | uncovered lines
+ℹ -------------------------------------------------------------------
+ℹ src                |        |          |         | 
+ℹ  access.ts         | 100.00 |   100.00 |  100.00 | 
+ℹ  domain.ts         |  95.65 |    92.45 |  100.00 | 40-41
+ℹ  request-guard.ts  | 100.00 |   100.00 |  100.00 | 
+ℹ  secure-storage.ts |  94.44 |    88.46 |  100.00 | 8
+ℹ  song-search.ts    | 100.00 |   100.00 |  100.00 | 
+ℹ -------------------------------------------------------------------
+ℹ all files          |  96.51 |    94.17 |  100.00 | 
+ℹ -------------------------------------------------------------------
+ℹ end of coverage report

@@ -1,0 +1,11 @@
+node_modules/
+.expo/
+dist/
+coverage/
+.env
+.env.*.local
+docs/
+tests/
+supabase/
+*.tsbuildinfo
+dist-android/

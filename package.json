@@ -1,0 +1,46 @@
+{
+  "name": "bandhub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "export": "expo export --platform all"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-community/slider": "5.2.1",
+    "@supabase/supabase-js": "^2.95.3",
+    "expo": "58.0.17",
+    "expo-audio": "~58.0.10",
+    "expo-constants": "~58.0.13",
+    "expo-crypto": "~58.0.7",
+    "expo-document-picker": "~58.0.4",
+    "expo-file-system": "~58.0.10",
+    "expo-linking": "~58.0.14",
+    "expo-router": "~58.0.25",
+    "expo-secure-store": "~58.0.2",
+    "expo-sharing": "~58.0.20",
+    "expo-status-bar": "~58.0.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.0",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-screens": "~4.30.0",
+    "react-native-web": "~0.21.4"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.3.14",
+    "@types/react": "^19.2.0",
+    "@types/react-test-renderer": "^19.1.0",
+    "react-test-renderer": "19.3.0",
+    "tsx": "^4.20.6",
+    "typescript": "~5.9.3"
+  }
+}

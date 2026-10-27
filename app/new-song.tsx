@@ -1,0 +1,8 @@
+import React,{useState} from 'react';
+import {View} from 'react-native';
+import {router,useLocalSearchParams} from 'expo-router';
+import {useWorkspace} from '../src/context';
+import {api} from '../src/api';
+import {useAction} from '../src/use-action';
+import {Screen,Heading,Card,Field,Button,Notice,s} from '../src/ui';
+export default function NewSong(){const params=useLocalSearchParams<{kind:string}>();const {band}=useWorkspace();const [kind,setKind]=useState(params.kind==='idea'?'idea':'song'),[title,setTitle]=useState(''),[bpm,setBpm]=useState('120'),[key,setKey]=useState(''),[signature,setSignature]=useState('4/4');const a=useAction();return <Screen><Button secondary title="Back" onPress={()=>router.back()}/><Heading title={kind==='idea'?'Catch a spark.':'Start something good.'} subtitle={band?.name??'Select a band first.'}/><Card><View style={s.row}><Button title="Song project" secondary={kind!=='song'} onPress={()=>setKind('song')}/><Button title="Quick idea" secondary={kind!=='idea'} onPress={()=>setKind('idea')}/></View><Field label="Title" value={title} onChangeText={setTitle} maxLength={120}/><Field label="BPM" value={bpm} onChangeText={setBpm} keyboardType="numeric"/><Field label="Musical key" value={key} onChangeText={setKey} placeholder="Am, C, F♯…" maxLength={20}/><Field label="Time signature" value={signature} onChangeText={setSignature}/><Notice text={a.error} error/><Button title={a.busy?'Creating…':'Create '+(kind==='idea'?'idea':'song')} disabled={!band||a.busy} onPress={()=>a.run(async()=>{const song=await api.createSong(band!.id,{title,bpm,musical_key:key,time_signature:signature,kind});router.replace({pathname:'/song/[id]',params:{id:song.id}})})}/></Card></Screen>}

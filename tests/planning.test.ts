@@ -1,0 +1,6 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {calendarInput,venueSearchUrl,partName} from '../src/planning.ts';
+test('calendar validates real local dates, times and a positive duration',()=>{const e=calendarInput('Rehearsal','2026-10-24','18:30','120','Studio','rehearsal');assert.equal(e.title,'Rehearsal');assert.equal(new Date(e.ends_at).getTime()-new Date(e.starts_at).getTime(),7200000);assert.throws(()=>calendarInput('x','2026-02-30','18:30','60','','gig'));assert.throws(()=>calendarInput('x','2026-10-24','25:00','60','','gig'));assert.throws(()=>calendarInput('x','2026-10-24','18:00','0','','gig'));assert.throws(()=>calendarInput('','2026-10-24','18:00','60','','gig'))});
+test('venue search encodes a town or nearby query without implying available bookings',()=>{const url=new URL(venueSearchUrl('Lyon & Villeurbanne'));assert.equal(url.host,'www.google.com');assert.equal(url.searchParams.get('query'),'live music bars and music venues in Lyon & Villeurbanne');assert.match(decodeURIComponent(venueSearchUrl('')),/near me/)});
+test('instrument takes retain their guide version in a bounded filename',()=>{assert.equal(partName('Bass',3,false),'Bass over v3.m4a');assert.equal(partName('Vocals',null,true),'Vocals.webm');assert.throws(()=>partName('',1,false));assert.throws(()=>partName('x'.repeat(81),1,false))});
